@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello word!");
 
-        Mat mat = Imgcodecs.imread("D:\\lunwen\\CardCode\\src\\main\\test_img\\test1.jpg");
+        Mat mat = Imgcodecs.imread(".\\test_img\\test10.jpg");
         System.out.println(mat);
     }
 }
