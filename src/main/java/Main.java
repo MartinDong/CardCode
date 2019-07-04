@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello word!");
-        String originalImgPath = "D:\\AOpnecv\\CardCode\\src\\main\\resources\\test_img\\test8.jpg";
+        String originalImgPath = "D:\\AOpnecv\\CardCode\\src\\main\\resources\\test_img\\test9.jpg";
 
         // 1、 读取图片
         Mat srcMat = Imgcodecs.imread(originalImgPath);
@@ -31,7 +31,7 @@ public class Main {
         Mat cannyImage = new Mat();
         double lowThresh = 500;//双阀值抑制中的低阀值
         double heightThresh = 200;//双阀值抑制中的高阀值
-        Imgproc.Canny(grayImage, cannyImage, lowThresh, heightThresh,3);
+        Imgproc.Canny(grayImage, cannyImage, lowThresh, heightThresh, 3);
 
         // 4、形态学（膨胀腐蚀）处理
         // 图片膨胀处理
@@ -39,8 +39,8 @@ public class Main {
         Mat dilateImage = new Mat();
         // 侵蚀
         Mat erodeImage = new Mat();
-        Mat elementX = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(25, 1));
-        Mat elementY = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(1, 19));
+        Mat elementX = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(25, 3));
+        Mat elementY = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 17));
         Point point = new Point(-1, -1);
 
         // 自定义 核进行 x 方向的膨胀腐蚀
@@ -55,8 +55,8 @@ public class Main {
         // 噪声处理
         // 平滑处理 中值滤波
         Mat blurrImage = new Mat();
-        Imgproc.medianBlur(dilateImage, blurrImage, 15);
-        Imgproc.medianBlur(blurrImage, blurrImage, 15);
+        Imgproc.medianBlur(dilateImage, blurrImage, 5);
+        Imgproc.medianBlur(blurrImage, blurrImage, 5);
 
         // 展示处理结果
         ImageViewer blurrImageViewer = new ImageViewer(blurrImage, "图片预览");
@@ -88,9 +88,21 @@ public class Main {
             System.out.println(
                     "height = " + rectMin.height
                             + "  width = " + rectMin.width +
-                            "rate = " + ((float) rectMin.width / rectMin.height)
+                            " rate = " + ((float) rectMin.width / rectMin.height)
             );
-            if ((float) rectMin.width / rectMin.height >= 2.2 && (float) rectMin.width / rectMin.height <= 3.6) {
+            // 筛选小于车牌大小的区域,
+            //  现行的九二式机动车号牌国标尺寸蓝牌和黑牌是440×140，
+            //  大车牌（黄牌）前牌尺寸同，后牌为440×220；
+            //  摩托车及轻便摩托车前牌是220×95，后牌是220×140。
+            if ((float) rectMin.width / rectMin.height >= 1.8
+                    && (float) rectMin.width / rectMin.height <= 3.3) {
+                System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
+                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
+                roiGrayImage = srcMat.submat(rectMin);
+            }
+
+            if ((float) rectMin.width / rectMin.height >= 2.2
+                    && (float) rectMin.width / rectMin.height <= 3.3) {
                 System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
                 Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
                 roiGrayImage = srcMat.submat(rectMin);
@@ -101,26 +113,14 @@ public class Main {
         // 6、自适应二值化处理
         //Candy 边缘检测
         Mat candyRoiImage = new Mat();
-        Imgproc.Canny(roiGrayImage, candyRoiImage, 450, 120, 3);
+        Imgproc.Canny(roiGrayImage, candyRoiImage, 500, 120, 3);
         //二值化
         Mat roiThreadHoldImage = new Mat();
         Imgproc.threshold(candyRoiImage, roiThreadHoldImage, 50, 255, Imgproc.THRESH_BINARY);
 
         // 展示处理结果
-        ImageViewer imageViewer = new ImageViewer(roiGrayImage, "图片预览");
+        ImageViewer imageViewer = new ImageViewer(candyRoiImage, "图片预览");
         imageViewer.imshow();
 
-
-//        // 3.二值化处理,也就是只留两个值,黑白
-//        Mat binaryMat = new Mat(srcMat.height(), srcMat.width(), CvType.CV_8UC1);
-//        Imgproc.threshold(destMat, binaryMat, 50, 255, Imgproc.THRESH_BINARY);
-//
-//        // 4.图像腐蚀,这里使用3*3的图片去腐蚀
-//        Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(2, 2));
-//        Imgproc.erode(binaryMat, destMat, element);
-//
-//        // 展示处理结果
-//        ImageViewer imageViewer = new ImageViewer(destMat, "图片预览");
-//        imageViewer.imshow();
     }
 }
