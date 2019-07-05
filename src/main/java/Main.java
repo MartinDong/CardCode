@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello word!");
-        String originalImgPath = "D:\\AOpnecv\\CardCode\\src\\main\\resources\\test_img\\test9.jpg";
+        String originalImgPath = ".\\src\\main\\resources\\test_img\\test8.jpg";
 
         // 1、 读取图片
         Mat srcMat = Imgcodecs.imread(originalImgPath);
