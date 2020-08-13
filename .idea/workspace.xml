@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/view/ImageView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,10 +86,11 @@
       <recent name="D:\lunwen\CardCode\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.DiscernFrame">
     <configuration name="DiscernFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.DiscernFrame" />
       <module name="CardCode" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=$PROJECT_DIR$/../CardCode\opencv\x64" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="gui.*" />
@@ -124,10 +122,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DiscernFrame" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TestMain" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.DiscernFrame" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
       </list>
     </recent_temporary>
@@ -162,7 +165,7 @@
       <workItem from="1591883897405" duration="852000" />
       <workItem from="1591886509834" duration="61000" />
       <workItem from="1591886585765" duration="4000" />
-      <workItem from="1597325863559" duration="4731000" />
+      <workItem from="1597325863559" duration="6337000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -213,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591804343975</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="增加了用于展示图片处理各个环节的展示UI">
+      <created>1597331737719</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1597331737719</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -236,13 +246,14 @@
     <MESSAGE value="更新了OpenCv版本" />
     <MESSAGE value="不能使用相对路径，增加了图片预览的工具" />
     <MESSAGE value="增加测试类" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加测试类" />
+    <MESSAGE value="增加了用于展示图片处理各个环节的展示UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了用于展示图片处理各个环节的展示UI" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591883474646">
+    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597331919528">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1591883474646" />
+    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597331919528" />
     <state x="1006" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591804277909">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -251,30 +262,30 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327231733" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1591804342888">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597331736638">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1591804342888" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597331736638" />
     <state x="954" y="260" key="FileChooserDialogImpl" timestamp="1591805161507">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1591805161507" />
-    <state width="1487" height="322" key="GridCell.Tab.0.bottom" timestamp="1597331702225">
+    <state width="1149" height="486" key="GridCell.Tab.0.bottom" timestamp="1597333206543">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1487" height="322" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597331702225" />
-    <state width="1487" height="322" key="GridCell.Tab.0.center" timestamp="1597331702225">
+    <state width="1149" height="486" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597333206543" />
+    <state width="1149" height="486" key="GridCell.Tab.0.center" timestamp="1597333206543">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1487" height="322" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597331702225" />
-    <state width="1487" height="322" key="GridCell.Tab.0.left" timestamp="1597331702225">
+    <state width="1149" height="486" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597333206543" />
+    <state width="1149" height="486" key="GridCell.Tab.0.left" timestamp="1597333206543">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1487" height="322" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597331702225" />
-    <state width="1487" height="322" key="GridCell.Tab.0.right" timestamp="1597331702225">
+    <state width="1149" height="486" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597333206543" />
+    <state width="1149" height="486" key="GridCell.Tab.0.right" timestamp="1597333206543">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1487" height="322" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597331702225" />
+    <state width="1149" height="486" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597333206543" />
     <state width="1225" height="337" key="GridCell.Tab.1.bottom" timestamp="1597327334038">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -299,18 +310,18 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1591802504985" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1591804349237">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597331740925">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1591804349237" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597331740925" />
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597327225233">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327225233" />
-    <state x="1526" y="0" width="1041" height="1047" key="dock-window-1" timestamp="1597331695681">
+    <state x="1188" y="0" width="1379" height="1047" key="dock-window-1" timestamp="1597332896983">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1526" y="0" width="1041" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597331695681" />
+    <state x="1188" y="0" width="1379" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597332896983" />
     <state x="1540" y="277" key="extract.method.dialog" timestamp="1597329063871">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

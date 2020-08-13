@@ -1,16 +1,25 @@
 package gui;
 
+import org.opencv.core.Core;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class DiscernFrame extends JFrame {
+    static {
+        // 加载本地 JNI 库
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        //注意程序运行的时候需要在VM option添加该行 指明opencv的dll文件所在路径
+        //-Djava.library.path=$PROJECT_DIR$\opencv\x64
+    }
+
     ImagePanel imagePanel = new ImagePanel();
 
     DiscernFrame() {
         init();
         this.setTitle("车牌号识别过程");
         this.setResizable(true);
-        this.setSize(900, 500);
+        this.setSize(1300, 800);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
