@@ -15,6 +15,7 @@ public class DiscernFrame extends JFrame {
 
     ImagePanel imagePanel = new ImagePanel();
     CarPlateImagePanel carPlateImagePanel = new CarPlateImagePanel();
+    FaPiaoPlatePanel faPiaoPlatePanel = new FaPiaoPlatePanel();
 
     DiscernFrame() {
         init();
@@ -29,7 +30,7 @@ public class DiscernFrame extends JFrame {
     void init() {
         //默认为1行，n列；2行3列，水平间距10，垂直间距5
         this.setLayout(new BorderLayout());
-        this.add(imagePanel, BorderLayout.CENTER);
+        this.add(faPiaoPlatePanel, BorderLayout.CENTER);
     }
 
     public static void main(String args[]) {

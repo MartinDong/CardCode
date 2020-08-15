@@ -1,5 +1,6 @@
-package gui.utils;
+package gui.plate.car;
 
+import gui.utils.MathUtils;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -21,7 +22,7 @@ import static org.opencv.imgproc.Imgproc.resize;
  * 二值化
  * 闭操作
  */
-public class CarSobelPlateLocationUtils {
+public class CarSobelPlateLocation {
     /**
      * 0、读取图片文件
      *

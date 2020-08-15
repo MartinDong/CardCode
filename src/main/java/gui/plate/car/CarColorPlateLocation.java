@@ -1,4 +1,4 @@
-package gui.utils;
+package gui.plate.car;
 
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
@@ -14,7 +14,7 @@ import static org.opencv.imgproc.Imgproc.*;
 /**
  * 使用颜色定位车牌
  */
-public class CarColorPlateLocationUtils {
+public class CarColorPlateLocation {
 
     public static void plateLocate(Mat srcImage, List<Mat> plates) {
 //        Mat srcShowImage = new Mat();

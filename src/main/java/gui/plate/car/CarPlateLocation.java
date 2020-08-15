@@ -1,4 +1,4 @@
-package gui.plate;
+package gui.plate.car;
 
 import org.opencv.core.Mat;
 
