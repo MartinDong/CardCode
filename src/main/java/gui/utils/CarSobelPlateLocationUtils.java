@@ -4,11 +4,12 @@ import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.opencv.core.CvType.CV_16S;
+import static org.opencv.core.CvType.CV_8UC3;
+import static org.opencv.imgproc.Imgproc.resize;
 
 /**
  * 车牌定位工具类
@@ -106,11 +107,11 @@ public class CarSobelPlateLocationUtils {
      * 对于结构大小 由于中国车牌比如 湘A 12345 有断层 所以 width过小不行,而过大会连接不必要的区域
      * sobel的方式定位不能100%匹配
      */
-    public static Mat closeImage(Mat srcMat) {
+    public static Mat closeImage(Mat srcMat, int close_w, int close_h) {
         //5、闭操作
         // 将相邻的白色区域扩大 连接成一个整体
         Mat close = new Mat();
-        Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(17, 3));
+        Mat element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(close_w, close_h));
         Imgproc.morphologyEx(srcMat, close, Imgproc.MORPH_CLOSE, element);
         //imshow("闭操作", close);
         return close;
@@ -233,7 +234,7 @@ public class CarSobelPlateLocationUtils {
         //二值
         Mat thresholds = thresholdsImage(abs_sobel);
         //闭操作 先膨胀、后腐蚀
-        Mat dst = closeImage(thresholds);
+        Mat dst = closeImage(thresholds, 17, 3);
 
         // 释放资源
         blur.release();
@@ -272,29 +273,29 @@ public class CarSobelPlateLocationUtils {
             //数据和src是同一份
             Mat src_rect = src.submat(safa_rect);
 
-            //相对于roi的中心点 不减去左上角坐标是相对于整个图的
-            //减去左上角则是相对于候选车牌的中心点 坐标
-            Point roi_ref_center = new Point(roi_rect.center.x - safa_rect.tl().x, roi_rect.center.y - safa_rect.tl().y);
-            Mat deskew_mat;
+            Mat dst;
             //不需要旋转的 旋转角度小没必要旋转了
-            if ((roi_angle - 5 < 0 && roi_angle + 5 > 0) || 90.0 == roi_angle ||
-                    -90.0 == roi_angle) {
-                deskew_mat = src_rect.clone();
+            if (roi_angle - 5 < 0 && roi_angle + 5 > 0) {
+                dst = src_rect.clone();
             } else {
+                //相对于roi的中心点 不减去左上角坐标是相对于整个图的
+                //减去左上角则是相对于候选车牌的中心点 坐标
+                //相对于roi的中心点 不减去左上角坐标是相对于整个图的
+                //减去左上角则是相对于候选车牌的中心点 坐标
+                Point roi_ref_center = new Point(roi_rect.center.x - safa_rect.tl().x, roi_rect.center.y - safa_rect.tl().y);
+//                Point roi_ref_center = roi_rect.center - rect.tl();
                 Mat rotated_mat = new Mat();
                 //矫正 rotated_mat: 矫正后的图片
                 rotation(src_rect, rotated_mat, roi_rect_size, roi_ref_center, roi_angle);
-                deskew_mat = rotated_mat;
+                dst = rotated_mat;
             }
-            //一个大致宽高比范围
-            if (deskew_mat.cols() * 1.0 / deskew_mat.rows() > 2.3 &&
-                    deskew_mat.cols() * 1.0 / deskew_mat.rows() < 6) {
-                Mat plate_mat = new Mat();
-                plate_mat.create(ImageObserver.HEIGHT, ImageObserver.WIDTH, CvType.CV_8UC3);
-                Imgproc.resize(deskew_mat, plate_mat, plate_mat.size());
-                dst_plates.add(plate_mat);
-            }
-            deskew_mat.release();
+            //定义大小
+            Mat plate_mat = new Mat();
+            //高+宽
+            plate_mat.create(32, 136, CV_8UC3);
+            resize(dst, plate_mat, plate_mat.size());
+            dst_plates.add(plate_mat);
+            dst.release();
         }
     }
 

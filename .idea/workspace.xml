@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/CarPlateImagePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/plate/CarPlateLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/OpenCVJavaTest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test_img/erweima1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test_img/erweima2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test_img/erweima3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/CarColorPlateLocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CarColorPlateLocationUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImageViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/view/ImageViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CarPlateImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CarPlateImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/CarSobelPlateLocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CarSobelPlateLocationUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -69,10 +74,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/soft/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../car" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/test_img" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15334302" />
     <property name="project.structure.side.proportion" value="0.29740793" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -81,6 +86,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Code\OpenCV\CardCode\src\main\resources\test_img" />
       <recent name="D:\lunwen\CardCode\opencv" />
       <recent name="D:\lunwen\CardCode\src\main\cpp" />
       <recent name="D:\lunwen\CardCode\src\main\resources" />
@@ -93,7 +99,7 @@
       <recent name="D:\lunwen\CardCode\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DiscernFrame">
+  <component name="RunManager" selected="Application.OpenCVJavaTest2">
     <configuration name="DiscernFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.DiscernFrame" />
       <module name="CardCode" />
@@ -116,6 +122,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OpenCVJavaTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.OpenCVJavaTest2" />
+      <module name="CardCode" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=$PROJECT_DIR$/../CardCode\opencv\x64" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestMain" />
       <module name="CardCode" />
@@ -133,9 +153,11 @@
       <item itemvalue="Application.DiscernFrame" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TestMain" />
+      <item itemvalue="Application.OpenCVJavaTest2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OpenCVJavaTest2" />
         <item itemvalue="Application.DiscernFrame" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMain" />
@@ -173,7 +195,7 @@
       <workItem from="1591886509834" duration="61000" />
       <workItem from="1591886585765" duration="4000" />
       <workItem from="1597325863559" duration="7780000" />
-      <workItem from="1597472414612" duration="16361000" />
+      <workItem from="1597472414612" duration="19078000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -252,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597482844436</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="恢复了之前的识别车牌的面板">
+      <created>1597494264845</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1597494264845</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -288,7 +317,8 @@
     <MESSAGE value="增加了用于展示图片处理各个环节的展示UI" />
     <MESSAGE value="完成了图像识别中的分步展示过程" />
     <MESSAGE value="整理新的车牌定位工具" />
-    <option name="LAST_COMMIT_MESSAGE" value="整理新的车牌定位工具" />
+    <MESSAGE value="恢复了之前的识别车牌的面板" />
+    <option name="LAST_COMMIT_MESSAGE" value="恢复了之前的识别车牌的面板" />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="182" key="#Console" timestamp="1597482682826">
@@ -299,10 +329,14 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="232" y="182" key="#Notifications/0.0.2560.1040@0.0.2560.1040" timestamp="1597472466258" />
-    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597331919528">
+    <state x="872" y="178" key="#Project_Structure" timestamp="1597499152258">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597331919528" />
+    <state x="872" y="178" key="#Project_Structure/0.0.2560.1040@0.0.2560.1040" timestamp="1597499152258" />
+    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597499388375">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597499388375" />
     <state x="1006" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591804277909">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -311,10 +345,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597483115076" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597482843442">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597494263600">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597482843442" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597494263600" />
     <state x="248" y="86" width="2048" height="860" key="DiffContextDialog" timestamp="1597494148906">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -323,38 +357,38 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1597490253070" />
-    <state width="2517" height="364" key="GridCell.Tab.0.bottom" timestamp="1597494158546">
+    <state width="2517" height="458" key="GridCell.Tab.0.bottom" timestamp="1597499673367">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="364" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597494158546" />
-    <state width="2517" height="364" key="GridCell.Tab.0.center" timestamp="1597494158546">
+    <state width="2517" height="458" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597499673367" />
+    <state width="2517" height="458" key="GridCell.Tab.0.center" timestamp="1597499673367">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="364" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597494158546" />
-    <state width="2517" height="364" key="GridCell.Tab.0.left" timestamp="1597494158546">
+    <state width="2517" height="458" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597499673367" />
+    <state width="2517" height="458" key="GridCell.Tab.0.left" timestamp="1597499673367">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="364" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597494158546" />
-    <state width="2517" height="364" key="GridCell.Tab.0.right" timestamp="1597494158546">
+    <state width="2517" height="458" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597499673367" />
+    <state width="2517" height="458" key="GridCell.Tab.0.right" timestamp="1597499673367">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2517" height="364" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597494158546" />
-    <state width="1234" height="337" key="GridCell.Tab.1.bottom" timestamp="1597482765248">
+    <state width="2517" height="458" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597499673367" />
+    <state width="1234" height="337" key="GridCell.Tab.1.bottom" timestamp="1597495440450">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765248" />
-    <state width="1234" height="337" key="GridCell.Tab.1.center" timestamp="1597482765247">
+    <state width="1234" height="337" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
+    <state width="1234" height="337" key="GridCell.Tab.1.center" timestamp="1597495440450">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765247" />
-    <state width="1234" height="337" key="GridCell.Tab.1.left" timestamp="1597482765247">
+    <state width="1234" height="337" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
+    <state width="1234" height="337" key="GridCell.Tab.1.left" timestamp="1597495440450">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765247" />
-    <state width="1234" height="337" key="GridCell.Tab.1.right" timestamp="1597482765247">
+    <state width="1234" height="337" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
+    <state width="1234" height="337" key="GridCell.Tab.1.right" timestamp="1597495440450">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765247" />
+    <state width="1234" height="337" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
     <state x="220" y="258" key="IDE.errors.dialog" timestamp="1597491410597">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -367,34 +401,34 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1591802504985" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597334029244">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597494268256">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597334029244" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597494268256" />
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597327225233">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327225233" />
-    <state x="1366" y="0" width="1201" height="1047" key="dock-window-1" timestamp="1597473166688">
+    <state x="1279" y="0" width="1288" height="1047" key="dock-window-1" timestamp="1597498919056">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1366" y="0" width="1201" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597473166688" />
+    <state x="1279" y="0" width="1288" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597498919056" />
     <state x="1540" y="277" key="extract.method.dialog" timestamp="1597329063871">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1540" y="277" key="extract.method.dialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597329063871" />
-    <state x="206" y="123" width="647" height="801" key="find.popup" timestamp="1597493655770">
+    <state x="801" y="130" width="647" height="801" key="find.popup" timestamp="1597495243196">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="206" y="123" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597493655770" />
+    <state x="801" y="130" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597495243196" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1591716253535">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="936" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1591716253535" />
-    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1597482900632">
+    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1597494622885">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597482900632" />
+    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597494622885" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

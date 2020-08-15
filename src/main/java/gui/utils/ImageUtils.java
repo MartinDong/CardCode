@@ -174,17 +174,18 @@ public class ImageUtils {
             System.out.println("height = " + rectMin.height
                     + "  width = " + rectMin.width +
                     " rate = " + ((float) rectMin.width / rectMin.height));
-            // 筛选小于车牌大小的区域,
-            //  现行的九二式机动车号牌国标尺寸蓝牌和黑牌是440×140，
-            //  大车牌（黄牌）前牌尺寸同，后牌为440×220；
-            //  摩托车及轻便摩托车前牌是220×95，后牌是220×140。
-            if ((float) rectMin.width / rectMin.height >= 1.8
-                    && (float) rectMin.width / rectMin.height <= 3.3) {
-                System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
-                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
-                roiGrayImage = srcMat.submat(rectMin);
-                vec_sobel_roi.add(contour);
-            }
+            //  筛选小于车牌大小的区域,
+            //  现行的九二式机动车号牌国标尺寸蓝牌和黑牌是 440 × 140，
+            //中国车牌标准440mm*140mm
+//            //  大车牌（黄牌）前牌尺寸同，后牌为440×220；
+//            //  摩托车及轻便摩托车前牌是220×95，后牌是220×140。
+//            if ((float) rectMin.width / rectMin.height >= 1.8
+//                    && (float) rectMin.width / rectMin.height <= 3.3) {
+//                System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
+//                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
+//                roiGrayImage = srcMat.submat(rectMin);
+//                vec_sobel_roi.add(contour);
+//            }
 
             if ((float) rectMin.width / rectMin.height >= 2.2
                     && (float) rectMin.width / rectMin.height <= 3.3) {

@@ -93,7 +93,7 @@ public class CarPlateImagePanel extends JPanel {
         btn6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat6 = CarSobelPlateLocationUtils.closeImage(mat5);
+                mat6 = CarSobelPlateLocationUtils.closeImage(mat5,17,3);
                 Image loadedImage = ImageUtils.toBufferedImage(mat6);
                 btn6.setIcon(new ImageIcon(loadedImage));
             }

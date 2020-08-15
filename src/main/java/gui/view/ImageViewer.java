@@ -1,3 +1,5 @@
+package gui.view;
+
 import org.opencv.core.Mat;
 
 import javax.swing.*;

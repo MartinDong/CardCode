@@ -14,6 +14,7 @@ public class DiscernFrame extends JFrame {
     }
 
     ImagePanel imagePanel = new ImagePanel();
+    CarPlateImagePanel carPlateImagePanel = new CarPlateImagePanel();
 
     DiscernFrame() {
         init();
