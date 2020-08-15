@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImagePanel extends JPanel {
     final String originalImgPath = ".\\src\\main\\resources\\test_img\\test8.jpg";
@@ -59,7 +61,7 @@ public class ImagePanel extends JPanel {
         btn2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat2 = CarSobelPlateLocationUtils.blurImage(mat1);
+                mat2 = CarSobelPlateLocationUtils.blurImage(mat1, 5);
                 Image loadedImage = ImageUtils.toBufferedImage(mat2);
                 btn2.setIcon(new ImageIcon(loadedImage));
             }
@@ -83,7 +85,7 @@ public class ImagePanel extends JPanel {
         btn5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat5 = CarSobelPlateLocationUtils.sholdImage(mat4);
+                mat5 = CarSobelPlateLocationUtils.thresholdsImage(mat4);
                 Image loadedImage = ImageUtils.toBufferedImage(mat5);
                 btn5.setIcon(new ImageIcon(loadedImage));
             }
@@ -99,9 +101,20 @@ public class ImagePanel extends JPanel {
         btn7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat7 = CarSobelPlateLocationUtils.findOutlineImage(mat6);
-                Image loadedImage = ImageUtils.toBufferedImage(mat7);
-                btn7.setIcon(new ImageIcon(loadedImage));
+                List<Mat> plates = new ArrayList<Mat>();
+
+                CarSobelPlateLocationUtils.plateLocate(mat1,plates);
+                for (Mat plate : plates) {
+                    Image loadedImage = ImageUtils.toBufferedImage(plate);
+                    btn7.setIcon(new ImageIcon(loadedImage));
+                }
+
+
+//                Mat src_threshold = CarSobelPlateLocationUtils.processMat(
+//                        mat1, 5, 17, 3);
+//                Image loadedImage = ImageUtils.toBufferedImage(src_threshold);
+//                btn7.setIcon(new ImageIcon(loadedImage));
+
             }
         });
     }

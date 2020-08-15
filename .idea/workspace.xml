@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="完成了图像识别中的分步展示过程">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CarColorPlateLocationUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CarPlateRecgnize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CarSobelPlateLocationUtils.java" afterDir="false" />
+    <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/MathUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/CarSobelPlateLocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CarSobelPlateLocationUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,7 @@
       <workItem from="1591886509834" duration="61000" />
       <workItem from="1591886585765" duration="4000" />
       <workItem from="1597325863559" duration="7780000" />
-      <workItem from="1597472414612" duration="4427000" />
+      <workItem from="1597472414612" duration="10242000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -232,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597333241564</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="整理新的车牌定位工具">
+      <created>1597477085381</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1597477085381</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -257,9 +263,14 @@
     <MESSAGE value="增加测试类" />
     <MESSAGE value="增加了用于展示图片处理各个环节的展示UI" />
     <MESSAGE value="完成了图像识别中的分步展示过程" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了图像识别中的分步展示过程" />
+    <MESSAGE value="整理新的车牌定位工具" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理新的车牌定位工具" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="232" y="182" key="#Console" timestamp="1597482682826">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="232" y="182" key="#Console/0.0.2560.1040@0.0.2560.1040" timestamp="1597482682826" />
     <state x="232" y="182" key="#Notifications" timestamp="1597472466258">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -276,10 +287,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327231733" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597334039803">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597477084208">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597334039803" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597477084208" />
     <state x="248" y="86" key="DiffContextDialog" timestamp="1597334038158">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -288,38 +299,38 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1591805161507" />
-    <state width="1234" height="486" key="GridCell.Tab.0.bottom" timestamp="1597476520035">
+    <state width="1234" height="365" key="GridCell.Tab.0.bottom" timestamp="1597482819572">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="486" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597476520035" />
-    <state width="1234" height="486" key="GridCell.Tab.0.center" timestamp="1597476520035">
+    <state width="1234" height="365" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597482819572" />
+    <state width="1234" height="365" key="GridCell.Tab.0.center" timestamp="1597482819572">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="486" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597476520035" />
-    <state width="1234" height="486" key="GridCell.Tab.0.left" timestamp="1597476520035">
+    <state width="1234" height="365" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597482819572" />
+    <state width="1234" height="365" key="GridCell.Tab.0.left" timestamp="1597482819572">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="486" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597476520035" />
-    <state width="1234" height="486" key="GridCell.Tab.0.right" timestamp="1597476520035">
+    <state width="1234" height="365" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597482819572" />
+    <state width="1234" height="365" key="GridCell.Tab.0.right" timestamp="1597482819572">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="486" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597476520035" />
-    <state width="1225" height="337" key="GridCell.Tab.1.bottom" timestamp="1597327334038">
+    <state width="1234" height="365" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597482819572" />
+    <state width="1234" height="337" key="GridCell.Tab.1.bottom" timestamp="1597482765248">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1225" height="337" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597327334038" />
-    <state width="1225" height="337" key="GridCell.Tab.1.center" timestamp="1597327334038">
+    <state width="1234" height="337" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765248" />
+    <state width="1234" height="337" key="GridCell.Tab.1.center" timestamp="1597482765247">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1225" height="337" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597327334038" />
-    <state width="1225" height="337" key="GridCell.Tab.1.left" timestamp="1597327334038">
+    <state width="1234" height="337" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765247" />
+    <state width="1234" height="337" key="GridCell.Tab.1.left" timestamp="1597482765247">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1225" height="337" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597327334038" />
-    <state width="1225" height="337" key="GridCell.Tab.1.right" timestamp="1597327334038">
+    <state width="1234" height="337" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765247" />
+    <state width="1234" height="337" key="GridCell.Tab.1.right" timestamp="1597482765247">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1225" height="337" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597327334038" />
+    <state width="1234" height="337" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597482765247" />
     <state x="571" y="234" key="RollbackChangesDialog" timestamp="1597331692337">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -344,18 +355,35 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1540" y="277" key="extract.method.dialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597329063871" />
-    <state x="206" y="123" width="647" height="801" key="find.popup" timestamp="1597474534044">
+    <state x="206" y="123" width="647" height="801" key="find.popup" timestamp="1597482191428">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="206" y="123" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597474534044" />
+    <state x="206" y="123" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597482191428" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1591716253535">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="936" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1591716253535" />
-    <state x="298" y="230" key="search.everywhere.popup" timestamp="1597327219759">
+    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1597482635900">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="298" y="230" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597327219759" />
+    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597482635900" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gui/ImagePanel.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="new Rect(tl_x, tl_y, w, h);" language="JAVA" />
+        <watch expression="loadedImage" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

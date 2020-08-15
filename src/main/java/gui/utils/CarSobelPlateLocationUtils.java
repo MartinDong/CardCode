@@ -4,16 +4,16 @@ import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
+import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.opencv.core.CvType.CV_16S;
-import static org.opencv.highgui.HighGui.imshow;
 
 /**
  * 车牌定位工具类
  * Sobel定位
- *
+ * <p>
  * 高斯模糊
  * 灰度化
  * 边缘化
@@ -41,11 +41,11 @@ public class CarSobelPlateLocationUtils {
     /**
      * 1、高斯模糊
      */
-    public static Mat blurImage(Mat srcMat) {
+    public static Mat blurImage(Mat srcMat, int blur_size) {
         //预处理 ：去噪 让车牌区域更加突出
         Mat blur = new Mat();
         //1、高斯模糊（平滑） （1、为了后续操作 2、降噪 ）
-        Imgproc.GaussianBlur(srcMat, blur, new Size(5, 5), 3);
+        Imgproc.GaussianBlur(srcMat, blur, new Size(blur_size, blur_size), 0);
         //imshow("高斯模糊",blur);
         return blur;
     }
@@ -76,20 +76,35 @@ public class CarSobelPlateLocationUtils {
     }
 
     /**
-     * 4、 二值化
+     * 加权
      */
-    public static Mat sholdImage(Mat srcMat) {
+    public static Mat addWeighted(Mat srcMat) {
         //4. 二值化 黑白
-        Mat shold = new Mat();
+        Mat weighted = new Mat();
         //大律法   最大类间算法
-        Imgproc.threshold(srcMat, shold, 0, 255,
-                Imgproc.THRESH_OTSU + Imgproc.THRESH_BINARY);
+        Core.addWeighted(srcMat, 1, weighted, 0, 0, weighted);
         //imshow("二值", shold);
-        return shold;
+        return weighted;
     }
 
     /**
-     * 5、 闭操作
+     * 4、 二值化
+     */
+    public static Mat thresholdsImage(Mat srcMat) {
+        //4. 二值化 黑白
+        Mat thresholds = new Mat();
+        //大律法   最大类间算法
+        Imgproc.threshold(srcMat, thresholds, 0, 255,
+                Imgproc.THRESH_OTSU + Imgproc.THRESH_BINARY);
+        //imshow("二值", shold);
+        return thresholds;
+    }
+
+    /**
+     * 5、 闭操作  先膨胀、后腐蚀
+     * 把白色区域连接起来，或者扩大。任何黑色区域如果小于结构元素的大小都会被消除
+     * 对于结构大小 由于中国车牌比如 湘A 12345 有断层 所以 width过小不行,而过大会连接不必要的区域
+     * sobel的方式定位不能100%匹配
      */
     public static Mat closeImage(Mat srcMat) {
         //5、闭操作
@@ -104,25 +119,27 @@ public class CarSobelPlateLocationUtils {
     /**
      * 6、查找轮廓
      */
-    public static Mat findOutlineImage(Mat srcMat) {
+    public static List<RotatedRect> findOutlineImage(Mat srcMat) {
         //获得初步筛选车牌轮廓
         //轮廓检测
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         Mat hierarchyImage = new Mat();
         //查找轮廓 提取最外层的轮廓  将结果变成点序列放入 集合
         Imgproc.findContours(srcMat, contours, hierarchyImage, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_NONE);
+        //满足初步筛选条件的轮廓
         //遍历
         List<RotatedRect> vec_sobel_roi = new ArrayList<RotatedRect>();
         for (MatOfPoint point : contours) {
             MatOfPoint2f point2f = new MatOfPoint2f(point.toArray());
             RotatedRect rotatedRect = Imgproc.minAreaRect(point2f);
-            Imgproc.rectangle(srcMat, rotatedRect.boundingRect(), new Scalar(255, 0, 0));
+            //绘制边框将符合的轮廓标注出来
+            //Imgproc.rectangle(srcMat, rotatedRect.boundingRect(), new Scalar(255, 0, 0));
             //进行初步的筛选 把完全不符合的轮廓给排除掉 ( 比如：1x1，5x1000 )
             if (verifySizes(rotatedRect)) {
                 vec_sobel_roi.add(rotatedRect);
             }
         }
-        return srcMat;
+        return vec_sobel_roi;
     }
 
     /**
@@ -131,6 +148,7 @@ public class CarSobelPlateLocationUtils {
     public static boolean verifySizes(RotatedRect rotated_rect) {
         //容错率
         float error = 0.75f;
+        //中国车牌标准440mm*140mm
         //训练时候模型的宽高 136 * 32
         //获得宽高比
         float aspect = 136F / 32f;
@@ -148,9 +166,12 @@ public class CarSobelPlateLocationUtils {
         //矩形的面积
         float area = (float) (rotated_rect.size.height * rotated_rect.size.width);
         //矩形的比例
+        //可能是竖的车牌 宽比高小就用 高宽比
         float r = (float) rotated_rect.size.width / (float) rotated_rect.size.height;
-        if ((area < min || area > max) || (r < rmin || r > rmax))
+        if (r < 1) r = (float) rotated_rect.size.height / (float) rotated_rect.size.width;
+        if ((area < min || area > max) || (r < rmin || r > rmax)) {
             return false;
+        }
         return true;
     }
 
@@ -164,17 +185,132 @@ public class CarSobelPlateLocationUtils {
 
         //运用仿射变换
         Mat mat_rotated = new Mat();
-        //矫正后 大小会不一样，但是对角线肯定能容纳
-        double max = Math.sqrt(Math.pow(src.rows(), 2) + Math.pow(src.cols(), 2));
-        //仿射变换
-        Imgproc.warpAffine(src, mat_rotated, rot_mat, new Size(max, max), 1);
-        imshow("旋转前", src);
-        imshow("旋转", mat_rotated);
-        //截取 尽量把车牌多余的区域截取掉
-        Imgproc.getRectSubPix(mat_rotated, new Size(rect_size.width, rect_size.height), center, dst);
-        imshow("截取", dst);
+        Imgproc.warpAffine(src, mat_rotated, rot_mat, new Size(src.cols(), src.rows()), 2);
+        //截取
+        Imgproc.getRectSubPix(mat_rotated, new Size(rect_size.width, rect_size.height),
+                center, dst);
         mat_rotated.release();
         rot_mat.release();
         return rot_mat;
     }
+
+    public static void plateLocate(Mat src, List<Mat> plates) {
+        Mat src_threshold = processMat(src, 5, 17, 3);
+        //imshow("processMat", src_threshold);
+
+        //获得初步筛选车牌轮廓================================================================
+        //轮廓检测
+        List<RotatedRect> vec_sobel_roi = findOutlineImage(src_threshold);
+//        src_threshold.release();
+
+        tortuosity(src, vec_sobel_roi, plates);
+    }
+
+    public static Mat processMat(Mat src, int blur_size, int close_w, int close_h) {
+        //图像预处理 ———— 降噪================================================================
+        //高斯滤波 也就是高斯模糊 降噪
+        Mat blur = blurImage(src, blur_size);
+        //imshow("高斯滤波", blur);
+        //灰度
+        Mat gray = greyImage(blur);
+        //imshow("灰度", gray);
+        //边缘检测滤波器 边缘检测 便于区分车牌
+        Mat abs_sobel = sobelImage(gray);
+        //imshow("边缘检测", abs_sobel);
+        //加权
+        //Mat weighted = addWeighted(abs_sobel);
+        //imshow("加权", weighted);
+        //二值
+        Mat thresholds = thresholdsImage(abs_sobel);
+        //闭操作 先膨胀、后腐蚀
+        Mat dst = closeImage(thresholds);
+
+        // 释放资源
+        blur.release();
+        gray.release();
+        abs_sobel.release();
+//        weighted.release();
+        thresholds.release();
+        return dst;
+    }
+
+
+    /**
+     * 车牌矫正
+     *
+     * @param src
+     * @param rects
+     * @param dst_plates
+     */
+    public static void tortuosity(Mat src, List<RotatedRect> rects, List<Mat> dst_plates) {
+        //循环要处理的矩形
+        for (RotatedRect roi_rect : rects) {
+            //矩形角度
+            double roi_angle = roi_rect.angle;
+            float r = (float) roi_rect.size.width / (float) roi_rect.size.height;
+            //矩形大小
+            Size roi_rect_size = roi_rect.size;
+            //交换宽高
+            if (r < 1) {
+                roi_angle = 90 + roi_angle;
+                MathUtils.swap(roi_rect_size.width, roi_rect_size.height);
+            }
+            //让rect在一个安全的范围(不能超过src)
+            Rect safa_rect = safeRect(src, roi_rect);
+            //候选车牌
+            //抠图  这里不是产生一张新图片 而是在src身上定位到一个Mat 让我们处理
+            //数据和src是同一份
+            Mat src_rect = src.submat(safa_rect);
+
+            //相对于roi的中心点 不减去左上角坐标是相对于整个图的
+            //减去左上角则是相对于候选车牌的中心点 坐标
+            Point roi_ref_center = new Point(roi_rect.center.x - safa_rect.tl().x, roi_rect.center.y - safa_rect.tl().y);
+            Mat deskew_mat;
+            //不需要旋转的 旋转角度小没必要旋转了
+            if ((roi_angle - 5 < 0 && roi_angle + 5 > 0) || 90.0 == roi_angle ||
+                    -90.0 == roi_angle) {
+                deskew_mat = src_rect.clone();
+            } else {
+                Mat rotated_mat = new Mat();
+                //矫正 rotated_mat: 矫正后的图片
+                rotation(src_rect, rotated_mat, roi_rect_size, roi_ref_center, roi_angle);
+                deskew_mat = rotated_mat;
+            }
+            //一个大致宽高比范围
+            if (deskew_mat.cols() * 1.0 / deskew_mat.rows() > 2.3 &&
+                    deskew_mat.cols() * 1.0 / deskew_mat.rows() < 6) {
+                Mat plate_mat = new Mat();
+                plate_mat.create(ImageObserver.HEIGHT, ImageObserver.WIDTH, CvType.CV_8UC3);
+                Imgproc.resize(deskew_mat, plate_mat, plate_mat.size());
+                dst_plates.add(plate_mat);
+            }
+            deskew_mat.release();
+        }
+    }
+
+    /**
+     * 转换安全矩形，防止矩形框超出图像边界
+     */
+    public static Rect safeRect(Mat src, RotatedRect rect) {
+        //RotatedRect 没有坐标
+        //转为正常的带坐标的边框
+        Rect boudRect = rect.boundingRect();
+        //左上角 x,y
+        int tl_x = Math.max(boudRect.x, 0);
+        int tl_y = Math.max(boudRect.y, 0);
+        //这里是拿 坐标 x，y 从0开始的 所以-1
+        //比如宽长度是10，x坐标最大是9， 所以src.clos-1
+        //右下角
+        float br_x = boudRect.x + boudRect.width < src.cols()
+                ? boudRect.x + boudRect.width - 1
+                : src.cols() - 1;
+        float br_y = boudRect.y + boudRect.height < src.rows()
+                ? boudRect.y + boudRect.height - 1
+                : src.rows() - 1;
+        int w = (int) (br_x - tl_x);
+        int h = (int) (br_y - tl_y);
+        if (w <= 0 || h <= 0) return new Rect(0, 0, 0, 0);
+        return new Rect(tl_x, tl_y, w, h);
+    }
+
 }
