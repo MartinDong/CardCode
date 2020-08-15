@@ -33,8 +33,8 @@ public class ImageUtils {
      * BufferedImage转换成Mat
      *
      * @param original 要转换的BufferedImage
-     * imgType  bufferedImage的类型 如 BufferedImage.TYPE_3BYTE_BGR
-     * matType  转换成mat的type 如 CvType.CV_8UC3
+     *                 imgType  bufferedImage的类型 如 BufferedImage.TYPE_3BYTE_BGR
+     *                 matType  转换成mat的type 如 CvType.CV_8UC3
      */
     public static Mat bufImg2Mat(BufferedImage original) {
         if (original == null) {
@@ -152,6 +152,7 @@ public class ImageUtils {
         Mat hierarchyImage = new Mat();
         // 深拷贝，查找轮廓会改变源图像信息，需要重新拷贝图像
         contourImage = srcMat.clone();
+        //查找轮廓 提取最外层的轮廓  将结果变成点序列放入 集合
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         Imgproc.findContours(
                 contourImage,
@@ -164,9 +165,10 @@ public class ImageUtils {
         System.out.println("hierarchy类型：" + hierarchyImage);
 
         // 画出轮廓
-        Imgproc.drawContours(contourImage, contours, -1, new Scalar(255), 1);
+        Imgproc.drawContours(contourImage, contours, -1, new Scalar(0, 0, 255), 1);
         // 轮廓表示为一个矩形  车牌提取
         Mat roiGrayImage = new Mat();
+        List<MatOfPoint> vec_sobel_roi = new ArrayList<MatOfPoint>();
         for (MatOfPoint contour : contours) {
             Rect rectMin = Imgproc.boundingRect(contour);
             System.out.println("height = " + rectMin.height
@@ -181,6 +183,7 @@ public class ImageUtils {
                 System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
                 Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
                 roiGrayImage = srcMat.submat(rectMin);
+                vec_sobel_roi.add(contour);
             }
 
             if ((float) rectMin.width / rectMin.height >= 2.2
@@ -188,6 +191,7 @@ public class ImageUtils {
                 System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
                 Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
                 roiGrayImage = srcMat.submat(rectMin);
+                vec_sobel_roi.add(contour);
             }
         }
         return roiGrayImage;

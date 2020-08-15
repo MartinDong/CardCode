@@ -120,12 +120,22 @@ public class CarSobelPlateLocationUtils {
      * 6、查找轮廓
      */
     public static List<RotatedRect> findOutlineImage(Mat srcMat) {
-        //获得初步筛选车牌轮廓
-        //轮廓检测
-        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+        // 矩形轮廓查找与筛选：
+        Mat contourImage;
         Mat hierarchyImage = new Mat();
+        // 深拷贝，查找轮廓会改变源图像信息，需要重新拷贝图像
+        contourImage = srcMat.clone();
         //查找轮廓 提取最外层的轮廓  将结果变成点序列放入 集合
-        Imgproc.findContours(srcMat, contours, hierarchyImage, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_NONE);
+        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+        Imgproc.findContours(
+                contourImage,
+                contours,
+                hierarchyImage,
+                Imgproc.RETR_EXTERNAL,
+                Imgproc.CHAIN_APPROX_NONE);
+
+        System.out.println("轮廓数量：" + contours.size());
+        System.out.println("hierarchy类型：" + hierarchyImage);
         //满足初步筛选条件的轮廓
         //遍历
         List<RotatedRect> vec_sobel_roi = new ArrayList<RotatedRect>();
