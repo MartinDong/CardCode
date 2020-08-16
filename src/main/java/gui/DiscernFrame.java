@@ -13,13 +13,15 @@ public class DiscernFrame extends JFrame {
         //-Djava.library.path=$PROJECT_DIR$\opencv\x64
     }
 
-    ImagePanel imagePanel = new ImagePanel();
-    CarPlateImagePanel carPlateImagePanel = new CarPlateImagePanel();
-    FaPiaoPlatePanel faPiaoPlatePanel = new FaPiaoPlatePanel();
+    //ImagePanel workPanel = new ImagePanel();
+    // 车牌识别
+//    CarPlatePanel workPanel = new CarPlatePanel();
+    // 发票矫正
+    InvoicePlatePanel workPanel = new InvoicePlatePanel();
 
     DiscernFrame() {
         init();
-        this.setTitle("车牌号识别过程");
+        this.setTitle("图像处理的流程");
         this.setResizable(true);
         this.setSize(1000, 800);
         this.setLocationRelativeTo(null);
@@ -30,7 +32,7 @@ public class DiscernFrame extends JFrame {
     void init() {
         //默认为1行，n列；2行3列，水平间距10，垂直间距5
         this.setLayout(new BorderLayout());
-        this.add(faPiaoPlatePanel, BorderLayout.CENTER);
+        this.add(workPanel, BorderLayout.CENTER);
     }
 
     public static void main(String args[]) {

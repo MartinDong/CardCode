@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarPlateImagePanel extends JPanel {
+public class CarPlatePanel extends JPanel {
     final String originalImgPath = ".\\src\\main\\resources\\test_img\\test8.jpg";
 
     JButton btn1 = new JButton("1、读取图片");
@@ -30,13 +30,13 @@ public class CarPlateImagePanel extends JPanel {
     Mat mat6;
     Mat mat7;
 
-    public CarPlateImagePanel() {
+    public CarPlatePanel() {
         init();
     }
 
     void init() {
         //默认为1行，n列；2行3列，水平间距10，垂直间距5
-        this.setLayout(new GridLayout(2, 3, 10, 5));
+        this.setLayout(new GridLayout(3, 4, 5, 5));
         this.add(btn1);
         this.add(btn2);
         this.add(btn3);

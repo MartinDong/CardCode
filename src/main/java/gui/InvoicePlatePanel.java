@@ -13,12 +13,12 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-public class FaPiaoPlatePanel extends JPanel {
+public class InvoicePlatePanel extends JPanel {
     final String originalImgPath = ".\\src\\main\\resources\\test_img\\fapiao2.png";
 //    final String originalImgPath = ".\\src\\main\\resources\\test_img\\01100190061195583380.jpg";
 
     JButton btn1 = new JButton("1、读取图片文件");
-    JButton btn2 = new JButton("2、图片灰度化,就是把图片转换为黑白照");
+    JButton btn2 = new JButton("2、图片灰度化");
     JButton btn3 = new JButton("3、高斯降噪");
     JButton btn4 = new JButton("4、使用Canndy检测边缘");
     JButton btn5 = new JButton("5、膨胀，连接边缘");
@@ -39,19 +39,12 @@ public class FaPiaoPlatePanel extends JPanel {
     List<MatOfPoint> contours;
     Point[] rotatedRectPoint;
 
-    public FaPiaoPlatePanel() {
+    public InvoicePlatePanel() {
         init();
     }
 
     void init() {
-        btn1.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn2.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn3.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn4.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn5.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn6.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn7.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn8.setVerticalTextPosition(SwingConstants.BOTTOM);
+        initButtonStyle();
 
         //默认为1行，n列；2行3列，水平间距10，垂直间距5
         this.setLayout(new GridLayout(3, 4, 5, 5));
@@ -65,6 +58,47 @@ public class FaPiaoPlatePanel extends JPanel {
         this.add(btn8);
 
         initAction();
+    }
+
+    private void initButtonStyle() {
+        //根据bai指定字体名称du、样式和磅值大小，创建zhi一个新 Font。
+        Font f = new Font("宋体", Font.BOLD, 25);
+
+        btn1.setFont(f);
+        btn2.setFont(f);
+        btn3.setFont(f);
+        btn4.setFont(f);
+        btn5.setFont(f);
+        btn6.setFont(f);
+        btn7.setFont(f);
+        btn8.setFont(f);
+
+        btn1.setForeground(Color.red);
+        btn2.setForeground(Color.red);
+        btn3.setForeground(Color.red);
+        btn4.setForeground(Color.red);
+        btn5.setForeground(Color.red);
+        btn6.setForeground(Color.red);
+        btn7.setForeground(Color.red);
+        btn8.setForeground(Color.red);
+
+        btn1.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn2.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn3.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn4.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn5.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn6.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn7.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn8.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        btn1.setVerticalTextPosition(SwingConstants.CENTER);
+        btn2.setVerticalTextPosition(SwingConstants.CENTER);
+        btn3.setVerticalTextPosition(SwingConstants.CENTER);
+        btn4.setVerticalTextPosition(SwingConstants.CENTER);
+        btn5.setVerticalTextPosition(SwingConstants.CENTER);
+        btn6.setVerticalTextPosition(SwingConstants.CENTER);
+        btn7.setVerticalTextPosition(SwingConstants.CENTER);
+        btn8.setVerticalTextPosition(SwingConstants.CENTER);
     }
 
     private void initAction() {
