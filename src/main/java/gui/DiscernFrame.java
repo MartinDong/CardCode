@@ -21,7 +21,7 @@ public class DiscernFrame extends JFrame {
         init();
         this.setTitle("车牌号识别过程");
         this.setResizable(true);
-        this.setSize(1300, 800);
+        this.setSize(1000, 800);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);

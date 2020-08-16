@@ -177,8 +177,8 @@ public class InvoiceIdentify {
         double space1 = getSpacePointToPoint(p1, p2);
         double space2 = getSpacePointToPoint(p2, p3);
         double space3 = getSpacePointToPoint(p3, p0);
-        double imgWidth = space0 > space2 ? space0 : space2;
-        double imgHeight = space1 > space3 ? space1 : space3;
+        double imgWidth = Math.max(space0, space2);
+        double imgHeight = Math.max(space1, space3);
         // 指定旋转点
         Mat quad = Mat.zeros((int) imgHeight * 2, (int) imgWidth * 2, CvType.CV_8UC3);
         MatOfPoint2f cornerMat = new MatOfPoint2f(p0, p1, p2, p3);
