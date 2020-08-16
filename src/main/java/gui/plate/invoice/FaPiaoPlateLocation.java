@@ -1,4 +1,4 @@
-package gui.plate.fapiao;
+package gui.plate.invoice;
 
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
@@ -54,7 +54,14 @@ public class FaPiaoPlateLocation {
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         Mat hierarchy = new Mat();
         Imgproc.findContours(dilate, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+        for (MatOfPoint contour : contours) {
+//            MatOfPoint2f point2f = new MatOfPoint2f(p0, p1, p2, p3);
+            MatOfPoint2f point2f = new MatOfPoint2f(contour.toArray());
+            RotatedRect rotatedRect = Imgproc.minAreaRect(point2f);
+            //绘制边框将符合的轮廓标注出来
+            Imgproc.rectangle(srcMat, rotatedRect.boundingRect(), new Scalar(0, 0, 255), 5);
 
+        }
         //4、寻找凸包，拟合多边形==================================
         // 找出轮廓对应凸包的四边形拟合
         List<MatOfPoint> squares = new ArrayList<MatOfPoint>();
@@ -178,10 +185,6 @@ public class FaPiaoPlateLocation {
             p3 = tempPoint.clone();
         }
 
-        MatOfPoint2f point2f = new MatOfPoint2f(p0, p1, p2, p3);
-        RotatedRect rotatedRect = Imgproc.minAreaRect(point2f);
-        //绘制边框将符合的轮廓标注出来
-        Imgproc.rectangle(srcMat, rotatedRect.boundingRect(), new Scalar(0, 0, 255), 5);
 
 
         Mat quad = Mat.zeros((int) imgHeight * 2, (int) imgWidth * 2, CvType.CV_8UC3);

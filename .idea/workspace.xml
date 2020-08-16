@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/FaPiaoPlatePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/plate/fapiao/FaPiaoPlateLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/CalculationUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test_img/fapiao.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test_img/fapiao2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/plate/card/Card2Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/plate/invoice/InvoiceIdentify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/plate/invoice/InvoiceIdentityStepUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test_img/01100190061195583380.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CarPlateImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CarPlateImagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/plate/CarPlateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarPlateLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/CarColorPlateLocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarColorPlateLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/CarSobelPlateLocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarSobelPlateLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/FaPiaoPlatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/FaPiaoPlatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/plate/fapiao/FaPiaoPlateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/invoice/FaPiaoPlateLocation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,18 +80,18 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\lunwen\CardCode\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="gui" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Code\OpenCV\CardCode\src\main\resources\test_img" />
       <recent name="D:\lunwen\CardCode\opencv" />
       <recent name="D:\lunwen\CardCode\src\main\cpp" />
       <recent name="D:\lunwen\CardCode\src\main\resources" />
       <recent name="D:\lunwen\CardCode\src\main" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="gui" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\lunwen\CardCode\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.DiscernFrame">
@@ -195,7 +190,8 @@
       <workItem from="1591886509834" duration="61000" />
       <workItem from="1591886585765" duration="4000" />
       <workItem from="1597325863559" duration="7780000" />
-      <workItem from="1597472414612" duration="22507000" />
+      <workItem from="1597472414612" duration="22626000" />
+      <workItem from="1597539160272" duration="3817000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -288,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597499725414</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="增加了发票识别">
+      <created>1597503161779</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1597503161779</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -326,7 +329,8 @@
     <MESSAGE value="整理新的车牌定位工具" />
     <MESSAGE value="恢复了之前的识别车牌的面板" />
     <MESSAGE value="增加了二維碼識別" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加了二維碼識別" />
+    <MESSAGE value="增加了发票识别" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了发票识别" />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="182" key="#Console" timestamp="1597482682826">
@@ -341,10 +345,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="872" y="178" key="#Project_Structure/0.0.2560.1040@0.0.2560.1040" timestamp="1597499152258" />
-    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597499388375">
+    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597540551517">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597499388375" />
+    <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597540551517" />
     <state x="1006" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591804277909">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -353,34 +357,34 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597483115076" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597503153243">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597503160303">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597503153243" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597503160303" />
     <state x="248" y="86" width="2048" height="860" key="DiffContextDialog" timestamp="1597494148906">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="248" y="86" width="2048" height="860" key="DiffContextDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597494148906" />
-    <state x="954" y="260" key="FileChooserDialogImpl" timestamp="1597490253070">
+    <state x="954" y="260" key="FileChooserDialogImpl" timestamp="1597540252279">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1597490253070" />
-    <state width="1353" height="455" key="GridCell.Tab.0.bottom" timestamp="1597503132402">
+    <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1597540252279" />
+    <state width="2517" height="454" key="GridCell.Tab.0.bottom" timestamp="1597542200300">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1353" height="455" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597503132402" />
-    <state width="1353" height="455" key="GridCell.Tab.0.center" timestamp="1597503132402">
+    <state width="2517" height="454" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597542200300" />
+    <state width="2517" height="454" key="GridCell.Tab.0.center" timestamp="1597542200300">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1353" height="455" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597503132402" />
-    <state width="1353" height="455" key="GridCell.Tab.0.left" timestamp="1597503132402">
+    <state width="2517" height="454" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597542200300" />
+    <state width="2517" height="454" key="GridCell.Tab.0.left" timestamp="1597542200299">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1353" height="455" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597503132402" />
-    <state width="1353" height="455" key="GridCell.Tab.0.right" timestamp="1597503132402">
+    <state width="2517" height="454" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597542200299" />
+    <state width="2517" height="454" key="GridCell.Tab.0.right" timestamp="1597542200300">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1353" height="455" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597503132402" />
+    <state width="2517" height="454" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597542200300" />
     <state width="1234" height="337" key="GridCell.Tab.1.bottom" timestamp="1597495440450">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -409,10 +413,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1591802504985" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597499727919">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597503163316">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597499727919" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597503163316" />
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597327225233">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

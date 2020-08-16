@@ -1,6 +1,7 @@
 package gui;
 
-import gui.plate.fapiao.FaPiaoPlateLocation;
+import gui.plate.invoice.FaPiaoPlateLocation;
+import gui.plate.invoice.InvoiceIdentify;
 import gui.utils.ImageUtils;
 import org.opencv.core.Mat;
 
@@ -9,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class FaPiaoPlatePanel extends JPanel {
     final String originalImgPath = ".\\src\\main\\resources\\test_img\\fapiao2.png";
@@ -59,13 +61,27 @@ public class FaPiaoPlatePanel extends JPanel {
         });
         btn2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println(e.getActionCommand());
-                mat2 = FaPiaoPlateLocation.plateLocate(mat1);
-                Image loadedImage = ImageUtils.toBufferedImage(mat2);
+//                System.out.println(e.getActionCommand());
+//                mat2 = FaPiaoPlateLocation.plateLocate(mat1);
+//                Image loadedImage = ImageUtils.toBufferedImage(mat2);
+//                Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
+//                        btn2.getWidth(), btn2.getHeight());
+//                ImageIcon imageIcon = new ImageIcon(loadedImage2);
+//                btn2.setIcon(imageIcon);
+
+                long c = System.currentTimeMillis();
+                InvoiceIdentify identify = new InvoiceIdentify(new File(".\\src\\main\\resources\\test_img\\01100190061195583380.jpg"));
+                identify.debug(".\\src\\main\\resources\\debug");
+                Mat resultMat = identify.identify();
+//                System.out.println(resultMat);
+                System.out.println("识别总时间:" + (System.currentTimeMillis() - c));
+
+                Image loadedImage = ImageUtils.toBufferedImage(resultMat);
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
                         btn2.getWidth(), btn2.getHeight());
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn2.setIcon(imageIcon);
+
             }
         });
         btn3.addActionListener(new ActionListener() {
