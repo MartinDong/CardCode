@@ -26,7 +26,6 @@ public class InvoicePlatePanel extends JPanel {
     JButton btn7 = new JButton("7、将凸包转为矩形");
     JButton btn8 = new JButton("8、提取图像");
 
-
     Mat mat1;
     Mat mat2;
     Mat mat3;
@@ -91,14 +90,14 @@ public class InvoicePlatePanel extends JPanel {
         btn7.setHorizontalTextPosition(SwingConstants.CENTER);
         btn8.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        btn1.setVerticalTextPosition(SwingConstants.CENTER);
-        btn2.setVerticalTextPosition(SwingConstants.CENTER);
-        btn3.setVerticalTextPosition(SwingConstants.CENTER);
-        btn4.setVerticalTextPosition(SwingConstants.CENTER);
-        btn5.setVerticalTextPosition(SwingConstants.CENTER);
-        btn6.setVerticalTextPosition(SwingConstants.CENTER);
-        btn7.setVerticalTextPosition(SwingConstants.CENTER);
-        btn8.setVerticalTextPosition(SwingConstants.CENTER);
+        btn1.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn2.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn3.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn4.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn5.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn6.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn7.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn8.setVerticalTextPosition(SwingConstants.BOTTOM);
     }
 
     private void initAction() {
@@ -112,7 +111,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat1);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn1.getWidth(), btn1.getHeight());
+                        btn1.getWidth(), btn1.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn1.setIcon(imageIcon);
@@ -127,7 +126,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat2);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn2.getWidth(), btn2.getHeight());
+                        btn2.getWidth(), btn2.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn2.setIcon(imageIcon);
@@ -142,7 +141,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat3);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn3.getWidth(), btn3.getHeight());
+                        btn3.getWidth(), btn3.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn3.setIcon(imageIcon);
@@ -157,7 +156,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat4);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn4.getWidth(), btn4.getHeight());
+                        btn4.getWidth(), btn4.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn4.setIcon(imageIcon);
@@ -172,7 +171,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat5);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn5.getWidth(), btn5.getHeight());
+                        btn5.getWidth(), btn5.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn5.setIcon(imageIcon);
@@ -189,7 +188,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat6);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn6.getWidth(), btn6.getHeight());
+                        btn6.getWidth(), btn6.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn6.setIcon(imageIcon);
@@ -206,7 +205,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat7);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn7.getWidth(), btn7.getHeight());
+                        btn7.getWidth(), btn7.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn7.setIcon(imageIcon);
@@ -221,7 +220,7 @@ public class InvoicePlatePanel extends JPanel {
                 Image loadedImage = ImageUtils.toBufferedImage(mat8);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
-                        btn8.getWidth(), btn8.getHeight());
+                        btn8.getWidth(), btn8.getHeight() - 40);
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn8.setIcon(imageIcon);
