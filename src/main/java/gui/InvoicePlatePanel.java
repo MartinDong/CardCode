@@ -14,8 +14,8 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class InvoicePlatePanel extends JPanel {
-    final String originalImgPath = ".\\src\\main\\resources\\test_img\\fapiao2.png";
-//    final String originalImgPath = ".\\src\\main\\resources\\test_img\\01100190061195583380.jpg";
+    final String originalImgPath = ".\\src\\main\\resources\\fapiao\\fapiao2.png";
+//    final String originalImgPath = ".\\src\\main\\resources\\fapiao\\fapiao1.jpg";
 
     JButton btn1 = new JButton("1、读取图片文件");
     JButton btn2 = new JButton("2、图片灰度化");

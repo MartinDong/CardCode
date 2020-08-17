@@ -111,6 +111,7 @@ public class InvoiceIdentityStepUtils {
                 maxIndex = i;
             }
         }
+
         // 用凸包计算出新的轮廓点
         MatOfInt hull = new MatOfInt();
         Imgproc.convexHull(contours.get(maxIndex), hull, false);
@@ -121,10 +122,12 @@ public class InvoiceIdentityStepUtils {
         for (int index : indices) {
             newPoints.add(contourPoints[index]);
         }
+
         // 将凸包转为矩形
         MatOfPoint2f contourHull = new MatOfPoint2f();
         contourHull.fromList(newPoints);
         RotatedRect rotatedRect = Imgproc.minAreaRect(contourHull);
+
         // 根据矩阵的角度，排序点
         Point[] rotatedRectPoint = sortCorners(rotatedRect);
         // 在临时图片上画上旋转矩阵

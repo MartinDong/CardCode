@@ -1,3 +1,5 @@
+package gui.view;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
