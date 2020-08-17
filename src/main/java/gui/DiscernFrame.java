@@ -15,9 +15,9 @@ public class DiscernFrame extends JFrame {
 
     //ImagePanel workPanel = new ImagePanel();
     // 车牌识别
-//    CarPlatePanel workPanel = new CarPlatePanel();
-    // 发票矫正
-    InvoicePlatePanel workPanel = new InvoicePlatePanel();
+    CarPlatePanel workPanel = new CarPlatePanel();
+    // 矩形票据\卡片矫正
+//    InvoicePlatePanel workPanel = new InvoicePlatePanel();
 
     DiscernFrame() {
         init();

@@ -30,14 +30,7 @@ public class CarSobelPlateLocation {
      * @return 图片Mat对象
      */
     public static Mat readImage(String imagePath) {
-        // 1、 读取图片
-        Mat srcMat = Imgcodecs.imread(imagePath);
-        System.out.println(srcMat);
-        if (srcMat.dataAddr() == 0) {
-            System.out.println("打开文件出错");
-            return null;
-        }
-        return srcMat;
+        return Imgcodecs.imread(imagePath);
     }
 
     /**

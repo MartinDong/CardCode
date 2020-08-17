@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fapiao/fapiao3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fapiao/yinhangka2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fapiao/yinhangka3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MatToBufImg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/view/MatToBufImg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShowImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/view/ShowImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/InvoicePlatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/InvoicePlatePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/plate/invoice/InvoiceIdentityStepUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/invoice/InvoiceIdentityStepUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/CarPlateRecgnize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/view/ImageView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/01100190061195583380.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fapiao/fapiao1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/fapiao2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fapiao/fapiao2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/yinhangka.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fapiao/yinhangka.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CarPlatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CarPlatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarSobelPlateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarSobelPlateLocation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +190,7 @@
       <workItem from="1597325863559" duration="7780000" />
       <workItem from="1597472414612" duration="22626000" />
       <workItem from="1597539160272" duration="14771000" />
-      <workItem from="1597679479332" duration="2061000" />
+      <workItem from="1597679479332" duration="2461000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -335,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597592632356</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="整理代码">
+      <created>1597681635638</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1597681635638</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -376,7 +373,8 @@
     <MESSAGE value="增加了发票识别" />
     <MESSAGE value="完成了发票畸形矫正" />
     <MESSAGE value="优化页面展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化页面展示" />
+    <MESSAGE value="整理代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理代码" />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="182" key="#Console" timestamp="1597482682826">
@@ -403,10 +401,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597483115076" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597592631435">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597681634180">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597592631435" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597681634180" />
     <state x="248" y="86" width="2048" height="860" key="DiffContextDialog" timestamp="1597494148906">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -415,22 +413,22 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1597540252279" />
-    <state width="1236" height="404" key="GridCell.Tab.0.bottom" timestamp="1597681612215">
+    <state width="1234" height="399" key="GridCell.Tab.0.bottom" timestamp="1597682046295">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1236" height="404" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597681612215" />
-    <state width="1236" height="404" key="GridCell.Tab.0.center" timestamp="1597681612215">
+    <state width="1234" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046295" />
+    <state width="1234" height="399" key="GridCell.Tab.0.center" timestamp="1597682046294">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1236" height="404" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597681612215" />
-    <state width="1236" height="404" key="GridCell.Tab.0.left" timestamp="1597681612215">
+    <state width="1234" height="399" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046294" />
+    <state width="1234" height="399" key="GridCell.Tab.0.left" timestamp="1597682046294">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1236" height="404" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597681612215" />
-    <state width="1236" height="404" key="GridCell.Tab.0.right" timestamp="1597681612215">
+    <state width="1234" height="399" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046294" />
+    <state width="1234" height="399" key="GridCell.Tab.0.right" timestamp="1597682046294">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1236" height="404" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597681612215" />
+    <state width="1234" height="399" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046294" />
     <state width="1234" height="337" key="GridCell.Tab.1.bottom" timestamp="1597495440450">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -459,18 +457,18 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1591802504985" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597594428141">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597681638668">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597594428141" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597681638668" />
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597327225233">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327225233" />
-    <state x="1035" y="0" width="1532" height="1047" key="dock-window-1" timestamp="1597679480785">
+    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1" timestamp="1597681853614">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1035" y="0" width="1532" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597679480785" />
+    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597681853614" />
     <state x="1540" y="277" key="extract.method.dialog" timestamp="1597591950138">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
