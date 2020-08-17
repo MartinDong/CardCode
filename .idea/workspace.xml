@@ -5,7 +5,24 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/CarPlatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CarPlatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarSobelPlateLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/plate/car/CarSobelPlateLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/erweima1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/erweima1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/erweima2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/erweima2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/erweima3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/erweima3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test_img/test9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/car/test9.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +83,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/soft/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/fapiao" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -190,7 +208,7 @@
       <workItem from="1597325863559" duration="7780000" />
       <workItem from="1597472414612" duration="22626000" />
       <workItem from="1597539160272" duration="14771000" />
-      <workItem from="1597679479332" duration="2461000" />
+      <workItem from="1597679479332" duration="6287000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -332,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597681635638</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="整理代码">
+      <created>1597682117306</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1597682117306</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -385,10 +410,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="232" y="182" key="#Notifications/0.0.2560.1040@0.0.2560.1040" timestamp="1597472466258" />
-    <state x="872" y="178" key="#Project_Structure" timestamp="1597499152258">
+    <state x="872" y="178" key="#Project_Structure" timestamp="1597683084655">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="178" key="#Project_Structure/0.0.2560.1040@0.0.2560.1040" timestamp="1597499152258" />
+    <state x="872" y="178" key="#Project_Structure/0.0.2560.1040@0.0.2560.1040" timestamp="1597683084655" />
     <state x="734" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597540551517">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -401,10 +426,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597483115076" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597681634180">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597682116239">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597681634180" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597682116239" />
     <state x="248" y="86" width="2048" height="860" key="DiffContextDialog" timestamp="1597494148906">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -413,38 +438,38 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1597540252279" />
-    <state width="1234" height="399" key="GridCell.Tab.0.bottom" timestamp="1597682046295">
+    <state width="1180" height="399" key="GridCell.Tab.0.bottom" timestamp="1597685895051">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046295" />
-    <state width="1234" height="399" key="GridCell.Tab.0.center" timestamp="1597682046294">
+    <state width="1180" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597685895051" />
+    <state width="1180" height="399" key="GridCell.Tab.0.center" timestamp="1597685895051">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="399" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046294" />
-    <state width="1234" height="399" key="GridCell.Tab.0.left" timestamp="1597682046294">
+    <state width="1180" height="399" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597685895051" />
+    <state width="1180" height="399" key="GridCell.Tab.0.left" timestamp="1597685895051">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="399" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046294" />
-    <state width="1234" height="399" key="GridCell.Tab.0.right" timestamp="1597682046294">
+    <state width="1180" height="399" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597685895051" />
+    <state width="1180" height="399" key="GridCell.Tab.0.right" timestamp="1597685895051">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="399" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597682046294" />
-    <state width="1234" height="337" key="GridCell.Tab.1.bottom" timestamp="1597495440450">
+    <state width="1180" height="399" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597685895051" />
+    <state width="1180" height="337" key="GridCell.Tab.1.bottom" timestamp="1597685623705">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
-    <state width="1234" height="337" key="GridCell.Tab.1.center" timestamp="1597495440450">
+    <state width="1180" height="337" key="GridCell.Tab.1.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597685623705" />
+    <state width="1180" height="337" key="GridCell.Tab.1.center" timestamp="1597685623705">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
-    <state width="1234" height="337" key="GridCell.Tab.1.left" timestamp="1597495440450">
+    <state width="1180" height="337" key="GridCell.Tab.1.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597685623705" />
+    <state width="1180" height="337" key="GridCell.Tab.1.left" timestamp="1597685623705">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
-    <state width="1234" height="337" key="GridCell.Tab.1.right" timestamp="1597495440450">
+    <state width="1180" height="337" key="GridCell.Tab.1.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597685623705" />
+    <state width="1180" height="337" key="GridCell.Tab.1.right" timestamp="1597685623705">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1234" height="337" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597495440450" />
+    <state width="1180" height="337" key="GridCell.Tab.1.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597685623705" />
     <state x="220" y="258" key="IDE.errors.dialog" timestamp="1597491410597">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -457,26 +482,26 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="760" y="94" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1591802504985" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597681638668">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597682119089">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597681638668" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597682119089" />
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597327225233">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327225233" />
-    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1" timestamp="1597681853614">
+    <state x="1219" y="0" width="1348" height="1047" key="dock-window-1" timestamp="1597684975008">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597681853614" />
-    <state x="1540" y="277" key="extract.method.dialog" timestamp="1597591950138">
+    <state x="1219" y="0" width="1348" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1597684975008" />
+    <state x="1540" y="277" key="extract.method.dialog" timestamp="1597682608633">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1540" y="277" key="extract.method.dialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597591950138" />
-    <state x="801" y="130" width="647" height="801" key="find.popup" timestamp="1597495243196">
+    <state x="1540" y="277" key="extract.method.dialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597682608633" />
+    <state x="801" y="130" width="647" height="801" key="find.popup" timestamp="1597685041569">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="801" y="130" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597495243196" />
+    <state x="801" y="130" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597685041569" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1591716253535">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -487,15 +512,6 @@
     <state x="298" y="230" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597494622885" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/gui/ImagePanel.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="new Rect(tl_x, tl_y, w, h);" language="JAVA" />

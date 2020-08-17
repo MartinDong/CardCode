@@ -15,17 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarPlatePanel extends JPanel {
-    final String originalImgPath = ".\\src\\main\\resources\\test_img\\test8.jpg";
+    final String originalImgPath = ".\\src\\main\\resources\\car\\test1.jpg";
 
-    JButton btn1 = new JButton("1、读取图片");
-    JButton btn2 = new JButton("2、高斯模糊");
-    JButton btn3 = new JButton("3、灰度化");
-    JButton btn4 = new JButton("4、边缘化");
-    JButton btn5 = new JButton("5、二值化");
-    JButton btn6 = new JButton("6、闭操作");
-    JButton btn7 = new JButton("7、最大面积、最小面积.宽高比。");
+    JButton btn1 = new JButton("1、读取图片文件");
+    JButton btn2 = new JButton("2、图片灰度化");
+    JButton btn3 = new JButton("3、高斯降噪");
+    JButton btn4 = new JButton("4、使用Canndy检测边缘");
+    JButton btn5 = new JButton("5、膨胀，连接边缘");
+    JButton btn6 = new JButton("6、寻找轮廓");
+    JButton btn7 = new JButton("7、将凸包转为矩形");
     JButton btn8 = new JButton("8、提取图像");
-
     Mat mat1;
     Mat mat2;
     Mat mat3;
@@ -117,7 +116,7 @@ public class CarPlatePanel extends JPanel {
         btn2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat2 = CarSobelPlateLocation.blurImage(mat1, 5);
+                mat2 = CarSobelPlateLocation.greyImage(mat1);
                 Image loadedImage = ImageUtils.toBufferedImage(mat2);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
@@ -129,7 +128,7 @@ public class CarPlatePanel extends JPanel {
         btn3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat3 = CarSobelPlateLocation.greyImage(mat2);
+                mat3 = CarSobelPlateLocation.blurImage(mat2, 5);
                 Image loadedImage = ImageUtils.toBufferedImage(mat3);
 
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
@@ -142,6 +141,7 @@ public class CarPlatePanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
                 mat4 = CarSobelPlateLocation.sobelImage(mat3);
+
                 Image loadedImage = ImageUtils.toBufferedImage(mat4);
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
                         btn4.getWidth(), btn4.getHeight() - 40);
@@ -153,6 +153,7 @@ public class CarPlatePanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
                 mat5 = CarSobelPlateLocation.thresholdsImage(mat4);
+
                 Image loadedImage = ImageUtils.toBufferedImage(mat5);
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
                         btn5.getWidth(), btn5.getHeight() - 40);
@@ -163,7 +164,8 @@ public class CarPlatePanel extends JPanel {
         btn6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat6 = CarSobelPlateLocation.closeImage(mat5,17,3);
+                mat6 = CarSobelPlateLocation.closeImage(mat5, 17, 3);
+
                 Image loadedImage = ImageUtils.toBufferedImage(mat6);
                 Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
                         btn6.getWidth(), btn6.getHeight() - 40);
@@ -174,13 +176,22 @@ public class CarPlatePanel extends JPanel {
         btn7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                List<Mat> plates = new ArrayList<Mat>();
 
-                CarSobelPlateLocation.plateLocate(mat1,plates);
-                for (Mat plate : plates) {
-                    Image loadedImage = ImageUtils.toBufferedImage(plate);
-                    btn7.setIcon(new ImageIcon(loadedImage));
-                }
+                mat7 = mat1.clone();
+
+                contours = CarSobelPlateLocation.findOutlineImage(mat6);
+
+                Image loadedImage = ImageUtils.toBufferedImage(mat7);
+                Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
+                        btn7.getWidth(), btn7.getHeight() - 40);
+                ImageIcon imageIcon = new ImageIcon(loadedImage2);
+                btn7.setIcon(imageIcon);
+
+
+//                for (Mat plate : plates) {
+//                    Image loadedImage = ImageUtils.toBufferedImage(plate);
+//                    btn7.setIcon(new ImageIcon(loadedImage));
+//                }
 
 //                Mat src_threshold = CarSobelPlateLocationUtils.processMat(
 //                        mat1, 5, 17, 3);

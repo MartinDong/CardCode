@@ -23,6 +23,17 @@ import static org.opencv.imgproc.Imgproc.resize;
  * 闭操作
  */
 public class CarSobelPlateLocation {
+
+    /**
+     * 轮廓颜色
+     */
+    private static Scalar profileColor = new Scalar(0, 0, 255);
+
+    /**
+     * 轮廓宽度
+     */
+    private static int profileWidth = 3;
+
     /**
      * 0、读取图片文件
      *
@@ -82,6 +93,7 @@ public class CarSobelPlateLocation {
         return weighted;
     }
 
+
     /**
      * 4、 二值化
      */
@@ -114,7 +126,7 @@ public class CarSobelPlateLocation {
     /**
      * 6、查找轮廓
      */
-    public static List<RotatedRect> findOutlineImage(Mat srcMat) {
+    public static List<MatOfPoint> findOutlineImage(Mat srcMat) {
         // 矩形轮廓查找与筛选：
         Mat contourImage;
         Mat hierarchyImage = new Mat();
@@ -131,6 +143,14 @@ public class CarSobelPlateLocation {
 
         System.out.println("轮廓数量：" + contours.size());
         System.out.println("hierarchy类型：" + hierarchyImage);
+
+        // 在临时图片上画上轮廓
+        Imgproc.drawContours(srcMat, contours, -1, profileColor, profileWidth);
+
+        return contours;
+    }
+
+    private static List<RotatedRect> findCarPlate(List<MatOfPoint> contours) {
         //满足初步筛选条件的轮廓
         //遍历
         List<RotatedRect> vec_sobel_roi = new ArrayList<RotatedRect>();
@@ -199,16 +219,20 @@ public class CarSobelPlateLocation {
         return rot_mat;
     }
 
-    public static void plateLocate(Mat src, List<Mat> plates) {
+    public static Mat plateLocate(Mat src, List<Mat> plates) {
         Mat src_threshold = processMat(src, 5, 17, 3);
         //imshow("processMat", src_threshold);
 
         //获得初步筛选车牌轮廓================================================================
         //轮廓检测
-        List<RotatedRect> vec_sobel_roi = findOutlineImage(src_threshold);
+        List<MatOfPoint> matOfPointList = findOutlineImage(src_threshold);
+        // 符合车牌的筛选
+        List<RotatedRect> vec_sobel_roi = findCarPlate(matOfPointList);
 //        src_threshold.release();
 
         tortuosity(src, vec_sobel_roi, plates);
+
+        return src_threshold;
     }
 
     public static Mat processMat(Mat src, int blur_size, int close_w, int close_h) {
@@ -234,7 +258,7 @@ public class CarSobelPlateLocation {
         blur.release();
         gray.release();
         abs_sobel.release();
-//        weighted.release();
+        //weighted.release();
         thresholds.release();
         return dst;
     }
@@ -242,10 +266,6 @@ public class CarSobelPlateLocation {
 
     /**
      * 车牌矫正
-     *
-     * @param src
-     * @param rects
-     * @param dst_plates
      */
     public static void tortuosity(Mat src, List<RotatedRect> rects, List<Mat> dst_plates) {
         //循环要处理的矩形

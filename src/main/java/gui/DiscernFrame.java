@@ -13,9 +13,9 @@ public class DiscernFrame extends JFrame {
         //-Djava.library.path=$PROJECT_DIR$\opencv\x64
     }
 
-    //ImagePanel workPanel = new ImagePanel();
+    ImagePanel workPanel = new ImagePanel();
     // 车牌识别
-    CarPlatePanel workPanel = new CarPlatePanel();
+//    CarPlatePanel workPanel = new CarPlatePanel();
     // 矩形票据\卡片矫正
 //    InvoicePlatePanel workPanel = new InvoicePlatePanel();
 
@@ -23,7 +23,7 @@ public class DiscernFrame extends JFrame {
         init();
         this.setTitle("图像处理的流程");
         this.setResizable(true);
-        this.setSize(1000, 800);
+        this.setSize(1100, 900);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);

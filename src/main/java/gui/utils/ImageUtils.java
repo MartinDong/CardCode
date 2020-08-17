@@ -112,8 +112,8 @@ public class ImageUtils {
      */
     public static Mat cannyImage(Mat srcMat) {
         Mat cannyImage = new Mat();
-        double lowThresh = 500;//双阀值抑制中的低阀值
-        double heightThresh = 200;//双阀值抑制中的高阀值
+        double lowThresh = 400;//双阀值抑制中的低阀值
+        double heightThresh = 300;//双阀值抑制中的高阀值
         Imgproc.Canny(srcMat, cannyImage, lowThresh, heightThresh, 3);
         return cannyImage;
     }
@@ -130,7 +130,7 @@ public class ImageUtils {
         Mat dilateImage = new Mat();
         // 侵蚀
         Mat erodeImage = new Mat();
-        Mat elementX = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(25, 3));
+        Mat elementX = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(20, 3));
         Mat elementY = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 17));
         Point point = new Point(-1, -1);
 
@@ -156,14 +156,14 @@ public class ImageUtils {
      * 5、轮廓处理
      *
      * @param srcMat 图片路径
-     * @return 图片Mat对象
+     * @return 图片Mat 集合对象
      */
-    public static Mat roiGrayImage(Mat srcMat) {
+    public static List<Mat> roiGrayImage(Mat srcMat, Mat newImage) {
         // 矩形轮廓查找与筛选：
         Mat contourImage;
         Mat hierarchyImage = new Mat();
         // 深拷贝，查找轮廓会改变源图像信息，需要重新拷贝图像
-        contourImage = srcMat.clone();
+        contourImage = newImage.clone();
         //查找轮廓 提取最外层的轮廓  将结果变成点序列放入 集合
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         Imgproc.findContours(
@@ -176,10 +176,10 @@ public class ImageUtils {
         System.out.println("轮廓数量：" + contours.size());
         System.out.println("hierarchy类型：" + hierarchyImage);
 
-        // 画出轮廓
-        Imgproc.drawContours(contourImage, contours, -1, new Scalar(0, 0, 255), 1);
+
         // 轮廓表示为一个矩形  车牌提取
-        Mat roiGrayImage = new Mat();
+        List<Mat> resultCarPlate = new ArrayList<Mat>();
+
         List<MatOfPoint> vec_sobel_roi = new ArrayList<MatOfPoint>();
         for (MatOfPoint contour : contours) {
             Rect rectMin = Imgproc.boundingRect(contour);
@@ -189,30 +189,32 @@ public class ImageUtils {
             //  筛选小于车牌大小的区域,
             //  现行的九二式机动车号牌国标尺寸蓝牌和黑牌是 440 × 140，
             //中国车牌标准440mm*140mm
-//            //  大车牌（黄牌）前牌尺寸同，后牌为440×220；
-//            //  摩托车及轻便摩托车前牌是220×95，后牌是220×140。
-//            if ((float) rectMin.width / rectMin.height >= 1.8
-//                    && (float) rectMin.width / rectMin.height <= 3.3) {
-//                System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
-//                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
-//                roiGrayImage = srcMat.submat(rectMin);
-//                vec_sobel_roi.add(contour);
-//            }
+            //  大车牌（黄牌）前牌尺寸同，后牌为440×220；
+            //  摩托车及轻便摩托车前牌是220×95，后牌是220×140。
+            if ((float) rectMin.width / rectMin.height >= 1.8
+                    && (float) rectMin.width / rectMin.height <= 3.3) {
+                System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
+                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
+                resultCarPlate.add(srcMat.submat(rectMin));
+                vec_sobel_roi.add(contour);
+            }
 
             if ((float) rectMin.width / rectMin.height >= 2.2
                     && (float) rectMin.width / rectMin.height <= 3.3) {
                 System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
                 Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
-                roiGrayImage = srcMat.submat(rectMin);
+                resultCarPlate.add(srcMat.submat(rectMin));
                 vec_sobel_roi.add(contour);
             }
         }
-        return roiGrayImage;
+        // 画出轮廓
+        Imgproc.drawContours(srcMat, vec_sobel_roi, -1, new Scalar(0, 0, 255), 1);
+        return resultCarPlate;
     }
 
 
     /**
-     * 6、自适应二值化处理
+     * 6、提取图像
      *
      * @param srcMat 图片路径
      * @return 图片Mat对象
