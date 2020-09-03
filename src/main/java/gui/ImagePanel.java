@@ -1,5 +1,6 @@
 package gui;
 
+import gui.plate.car.CarSobelPlateLocation;
 import gui.utils.ImageUtils;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
@@ -14,14 +15,14 @@ import java.util.List;
 
 public class ImagePanel extends JPanel {
     final String originalImgPath =
-            ".\\src\\main\\resources\\car\\test1.jpg";
+            ".\\src\\main\\resources\\car\\test7.jpg";
 
     JButton btn1 = new JButton("1、读取图片");
     JButton btn2 = new JButton("2、图片灰度化");
-    JButton btn3 = new JButton("3、使用Canndy检测边缘");
-    JButton btn4 = new JButton("4、膨胀，连接边缘");
-    JButton btn5 = new JButton("5、轮廓处理");
-    JButton btn6 = new JButton("6、自适应二值化处理");
+    JButton btn3 = new JButton("3、高斯模糊");
+    JButton btn4 = new JButton("4、使用Canndy检测边缘");
+    JButton btn5 = new JButton("5、膨胀，连接边缘");
+    JButton btn6 = new JButton("6、轮廓处理");
     JButton btn7 = new JButton("7、将凸包转为矩形");
     JButton btn8 = new JButton("8、提取图像");
 
@@ -50,7 +51,7 @@ public class ImagePanel extends JPanel {
         this.add(btn3);
         this.add(btn4);
         this.add(btn5);
-//        this.add(btn6);
+        this.add(btn6);
 //        this.add(btn7);
 //        this.add(btn8);
         initAction();
@@ -131,7 +132,8 @@ public class ImagePanel extends JPanel {
         btn3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat3 = ImageUtils.cannyImage(mat2);
+
+                mat3 = CarSobelPlateLocation.blurImage(mat2, 3);
 
                 Image loadedImage = ImageUtils.toBufferedImage(mat3);
 
@@ -145,7 +147,7 @@ public class ImagePanel extends JPanel {
         btn4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat4 = ImageUtils.blurryImage(mat3);
+                mat4 = ImageUtils.cannyImage(mat2);
 
                 Image loadedImage = ImageUtils.toBufferedImage(mat4);
 
@@ -159,9 +161,7 @@ public class ImagePanel extends JPanel {
         btn5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat5 = mat1.clone();
-
-                ImageUtils.roiGrayImage(mat5, mat4);
+                mat5 = ImageUtils.blurryImage(mat4);
 
                 Image loadedImage = ImageUtils.toBufferedImage(mat5);
 
@@ -175,7 +175,9 @@ public class ImagePanel extends JPanel {
         btn6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(e.getActionCommand());
-                mat6 = ImageUtils.roiThreadHoldImage(mat5);
+                mat6 = mat1.clone();
+
+                ImageUtils.roiGrayImage(mat6, mat5);
 
                 Image loadedImage = ImageUtils.toBufferedImage(mat6);
 

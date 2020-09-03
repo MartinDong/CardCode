@@ -130,7 +130,7 @@ public class ImageUtils {
         Mat dilateImage = new Mat();
         // 侵蚀
         Mat erodeImage = new Mat();
-        Mat elementX = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(20, 3));
+        Mat elementX = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(17, 3));
         Mat elementY = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 17));
         Point point = new Point(-1, -1);
 
@@ -145,11 +145,11 @@ public class ImageUtils {
 
         // 噪声处理
         // 平滑处理 中值滤波
-        Mat blurryImage = new Mat();
-        Imgproc.medianBlur(dilateImage, blurryImage, 5);
-        Imgproc.medianBlur(blurryImage, blurryImage, 5);
+//        Mat blurryImage = new Mat();
+//        Imgproc.medianBlur(dilateImage, blurryImage, 5);
+//        Imgproc.medianBlur(blurryImage, blurryImage, 5);
 
-        return blurryImage;
+        return dilateImage;
     }
 
     /**
