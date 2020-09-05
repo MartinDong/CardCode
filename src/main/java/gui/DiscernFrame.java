@@ -23,7 +23,7 @@ public class DiscernFrame extends JFrame {
         init();
         this.setTitle("图像处理的流程");
         this.setResizable(true);
-        this.setSize(1100, 900);
+        this.setSize(1000, 1000);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);

@@ -112,7 +112,7 @@ public class ImageUtils {
      */
     public static Mat cannyImage(Mat srcMat) {
         Mat cannyImage = new Mat();
-        double lowThresh = 400;//双阀值抑制中的低阀值
+        double lowThresh = 500;//双阀值抑制中的低阀值
         double heightThresh = 300;//双阀值抑制中的高阀值
         Imgproc.Canny(srcMat, cannyImage, lowThresh, heightThresh, 3);
         return cannyImage;
@@ -158,13 +158,14 @@ public class ImageUtils {
      * @param srcMat 图片路径
      * @return 图片Mat 集合对象
      */
-    public static List<Mat> roiGrayImage(Mat srcMat, Mat newImage) {
+    public static List<Mat> roiGrayImage(Mat srcMat, Mat newImage,boolean needDrawContours) {
         // 矩形轮廓查找与筛选：
+        Mat srcMatCopy = srcMat.clone();
         Mat contourImage;
         Mat hierarchyImage = new Mat();
         // 深拷贝，查找轮廓会改变源图像信息，需要重新拷贝图像
         contourImage = newImage.clone();
-        //查找轮廓 提取最外层的轮廓  将结果变成点序列放入 集合
+        // 查找轮廓 提取最外层的轮廓  将结果变成点序列放入集合
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         Imgproc.findContours(
                 contourImage,
@@ -188,27 +189,29 @@ public class ImageUtils {
                     " rate = " + ((float) rectMin.width / rectMin.height));
             //  筛选小于车牌大小的区域,
             //  现行的九二式机动车号牌国标尺寸蓝牌和黑牌是 440 × 140，
-            //中国车牌标准440mm*140mm
+            //  中国车牌标准440mm*140mm
             //  大车牌（黄牌）前牌尺寸同，后牌为440×220；
             //  摩托车及轻便摩托车前牌是220×95，后牌是220×140。
             if ((float) rectMin.width / rectMin.height >= 1.8
                     && (float) rectMin.width / rectMin.height <= 3.3) {
                 System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
-                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
-                resultCarPlate.add(srcMat.submat(rectMin));
+                //Imgproc.rectangle(srcMatCopy, rectMin, new Scalar(0, 0, 255), 2);
+                resultCarPlate.add(srcMatCopy.submat(rectMin));
                 vec_sobel_roi.add(contour);
             }
 
             if ((float) rectMin.width / rectMin.height >= 2.2
                     && (float) rectMin.width / rectMin.height <= 3.3) {
                 System.out.println("r.x = " + rectMin.x + "  r.y  = " + rectMin.y);
-                Imgproc.rectangle(srcMat, rectMin, new Scalar(0, 0, 255), 2);
-                resultCarPlate.add(srcMat.submat(rectMin));
+                //Imgproc.rectangle(srcMatCopy, rectMin, new Scalar(0, 0, 255), 2);
+                resultCarPlate.add(srcMatCopy.submat(rectMin));
                 vec_sobel_roi.add(contour);
             }
         }
-        // 画出轮廓
-        Imgproc.drawContours(srcMat, vec_sobel_roi, -1, new Scalar(0, 0, 255), 1);
+        if (needDrawContours){
+            // 画出轮廓
+            Imgproc.drawContours(srcMat, vec_sobel_roi, -1, new Scalar(0, 0, 255), 3);
+        }
         return resultCarPlate;
     }
 

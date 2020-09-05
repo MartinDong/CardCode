@@ -15,16 +15,16 @@ import java.util.List;
 
 public class ImagePanel extends JPanel {
     final String originalImgPath =
-            ".\\src\\main\\resources\\car\\test7.jpg";
+            ".\\src\\main\\resources\\car\\test03.jpg";
 
     JButton btn1 = new JButton("1、读取图片");
     JButton btn2 = new JButton("2、图片灰度化");
     JButton btn3 = new JButton("3、高斯模糊");
     JButton btn4 = new JButton("4、使用Canndy检测边缘");
     JButton btn5 = new JButton("5、膨胀，连接边缘");
-    JButton btn6 = new JButton("6、轮廓处理");
-    JButton btn7 = new JButton("7、将凸包转为矩形");
-    JButton btn8 = new JButton("8、提取图像");
+    JButton btn6 = new JButton("6、提取图像");
+    JButton btn7 = new JButton("7、图像分割");
+    JButton btn8 = new JButton("8、");
 
     Mat mat1;
     Mat mat2;
@@ -52,14 +52,14 @@ public class ImagePanel extends JPanel {
         this.add(btn4);
         this.add(btn5);
         this.add(btn6);
-//        this.add(btn7);
+        this.add(btn7);
 //        this.add(btn8);
         initAction();
     }
 
     private void initButtonStyle() {
         //根据bai指定字体名称du、样式和磅值大小，创建zhi一个新 Font。
-        Font f = new Font("宋体", Font.BOLD, 25);
+        Font f = new Font("宋体", Font.BOLD, 20);
 
         btn1.setFont(f);
         btn2.setFont(f);
@@ -177,7 +177,7 @@ public class ImagePanel extends JPanel {
                 System.out.println(e.getActionCommand());
                 mat6 = mat1.clone();
 
-                ImageUtils.roiGrayImage(mat6, mat5);
+                ImageUtils.roiGrayImage(mat6, mat5, true);
 
                 Image loadedImage = ImageUtils.toBufferedImage(mat6);
 
@@ -186,6 +186,25 @@ public class ImagePanel extends JPanel {
 
                 ImageIcon imageIcon = new ImageIcon(loadedImage2);
                 btn6.setIcon(imageIcon);
+            }
+        });
+        btn7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(e.getActionCommand());
+                mat7 = mat1.clone();
+
+                List<Mat> resultMat = ImageUtils.roiGrayImage(mat7, mat5, false);
+
+                if (resultMat.size() > 0) {
+                    Image loadedImage = ImageUtils.toBufferedImage(resultMat.get(0));
+
+                    Image loadedImage2 = ImageUtils.resize((BufferedImage) loadedImage,
+                            btn7.getWidth(), btn7.getHeight() - 40);
+
+                    ImageIcon imageIcon = new ImageIcon(loadedImage2);
+                    btn7.setIcon(imageIcon);
+                }
+
             }
         });
     }

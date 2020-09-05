@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1f7b3d9-8934-4654-a1f4-09cc6c8ddc45" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/car/test00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/car/test01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/car/test02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/car/test03.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DiscernFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ImagePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/utils/ImageUtils.java" afterDir="false" />
     </list>
@@ -66,7 +71,7 @@
     <property name="android.sdk.path" value="D:/soft/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/fapiao" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/car" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -78,11 +83,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Code\OpenCV\CardCode\src\main\resources\car" />
       <recent name="E:\Code\OpenCV\CardCode\src\main\resources\fapiao" />
       <recent name="E:\Code\OpenCV\CardCode\src\main\resources\test_img" />
       <recent name="D:\lunwen\CardCode\opencv" />
       <recent name="D:\lunwen\CardCode\src\main\cpp" />
-      <recent name="D:\lunwen\CardCode\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="gui" />
@@ -195,6 +200,9 @@
       <workItem from="1597851138863" duration="1499000" />
       <workItem from="1597937174754" duration="12000" />
       <workItem from="1597937199619" duration="1160000" />
+      <workItem from="1599145522571" duration="1870000" />
+      <workItem from="1599295210281" duration="3720000" />
+      <workItem from="1599324817543" duration="2312000" />
     </task>
     <task id="LOCAL-00001" summary="开始基于opencv 编写项目">
       <created>1562207537099</created>
@@ -343,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597682117306</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="增加了预览">
+      <created>1599145555730</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1599145555730</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -373,7 +388,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -396,7 +413,8 @@
     <MESSAGE value="完成了发票畸形矫正" />
     <MESSAGE value="优化页面展示" />
     <MESSAGE value="整理代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="整理代码" />
+    <MESSAGE value="增加了预览" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了预览" />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="182" key="#Console" timestamp="1597482682826">
@@ -423,10 +441,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="440" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597483115076" />
-    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1597685918223">
+    <state x="880" y="110" key="CommitChangelistDialog2" timestamp="1599145554029">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1597685918223" />
+    <state x="880" y="110" key="CommitChangelistDialog2/0.0.2560.1040@0.0.2560.1040" timestamp="1599145554029" />
     <state x="248" y="86" width="2048" height="860" key="DiffContextDialog" timestamp="1597938089960">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -435,22 +453,22 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="954" y="260" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1597540252279" />
-    <state width="1395" height="395" key="GridCell.Tab.0.bottom" timestamp="1597938487140">
+    <state width="1234" height="398" key="GridCell.Tab.0.bottom" timestamp="1599328170909">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1395" height="395" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1597938487140" />
-    <state width="1395" height="395" key="GridCell.Tab.0.center" timestamp="1597938487139">
+    <state width="1234" height="398" key="GridCell.Tab.0.bottom/0.0.2560.1040@0.0.2560.1040" timestamp="1599328170909" />
+    <state width="1234" height="398" key="GridCell.Tab.0.center" timestamp="1599328170909">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1395" height="395" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1597938487139" />
-    <state width="1395" height="395" key="GridCell.Tab.0.left" timestamp="1597938487139">
+    <state width="1234" height="398" key="GridCell.Tab.0.center/0.0.2560.1040@0.0.2560.1040" timestamp="1599328170909" />
+    <state width="1234" height="398" key="GridCell.Tab.0.left" timestamp="1599328170908">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1395" height="395" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1597938487139" />
-    <state width="1395" height="395" key="GridCell.Tab.0.right" timestamp="1597938487139">
+    <state width="1234" height="398" key="GridCell.Tab.0.left/0.0.2560.1040@0.0.2560.1040" timestamp="1599328170908" />
+    <state width="1234" height="398" key="GridCell.Tab.0.right" timestamp="1599328170909">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="1395" height="395" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1597938487139" />
+    <state width="1234" height="398" key="GridCell.Tab.0.right/0.0.2560.1040@0.0.2560.1040" timestamp="1599328170909" />
     <state width="1395" height="334" key="GridCell.Tab.1.bottom" timestamp="1597938146323">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -471,10 +489,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="220" y="258" key="IDE.errors.dialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597491410597" />
-    <state x="571" y="234" key="RollbackChangesDialog" timestamp="1597591250000">
+    <state x="571" y="234" key="RollbackChangesDialog" timestamp="1599325844242">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="571" y="234" key="RollbackChangesDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597591250000" />
+    <state x="571" y="234" key="RollbackChangesDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1599325844242" />
     <state x="760" y="94" key="SettingsEditor" timestamp="1591802504985">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -483,34 +501,34 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1727" y="227" key="VCS.ChangeListViewerDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597938047130" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597685922374">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599145559324">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1597685922374" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.0.2560.1040@0.0.2560.1040" timestamp="1599145559324" />
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597327225233">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="286" y="113" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1040@0.0.2560.1040" timestamp="1597327225233" />
-    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1" timestamp="1599145533896">
+    <state x="-7" y="0" width="1294" height="1047" key="dock-window-1" timestamp="1599328185168">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1273" y="0" width="1294" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1599145533896" />
+    <state x="-7" y="0" width="1294" height="1047" key="dock-window-1/0.0.2560.1040@0.0.2560.1040" timestamp="1599328185168" />
     <state x="1540" y="277" key="extract.method.dialog" timestamp="1597682608633">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1540" y="277" key="extract.method.dialog/0.0.2560.1040@0.0.2560.1040" timestamp="1597682608633" />
-    <state x="801" y="130" width="647" height="801" key="find.popup" timestamp="1597851345114">
+    <state x="801" y="130" width="1170" height="801" key="find.popup" timestamp="1599147204139">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="801" y="130" width="647" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597851345114" />
+    <state x="801" y="130" width="1170" height="801" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1599147204139" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1591716253535">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="936" y="240" width="672" height="677" key="run.anything.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1591716253535" />
-    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1597494622885">
+    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1599325918821">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1597494622885" />
+    <state x="298" y="230" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1599325918821" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
